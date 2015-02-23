@@ -1,0 +1,23 @@
+{
+  "name": "schiffmann",
+  "version": "0.0.0",
+  "description": "Clone bower packages and its dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ido Shamun <idoesh1@gmail.com>",
+  "contributors": [
+    {
+      "name": "Ron Nagar"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "async": "^0.9.0",
+    "bower-registry-client": "^0.2.1",
+    "colors": "^1.0.3",
+    "nodegit": "^0.2.4",
+    "optimist": "^0.6.1"
+  }
+}
