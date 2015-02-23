@@ -1,6 +1,6 @@
 {
   "name": "schiffmann",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Clone bower packages and its dependencies",
   "bin": {
     "schiffmann": "bin/schiffmann.js"
