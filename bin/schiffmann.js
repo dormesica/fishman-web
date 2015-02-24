@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 
+var colors = require('colors/safe');
 var argv = require('optimist')
-	.usage('Download bower module and its dependencies.\nUsage: $0')
+	.usage('Download module and its dependencies from different package managers.\nUsage: $0')
+	.demand('pm')
+	.alias('pm', 'packageManager')
+	.describe('m', 'Package manager name')
 	.demand('m')
 	.alias('m', 'module')
-	.describe('m', 'Bower module name')
+	.describe('m', 'Module name')
 	.demand('p')
 	.alias('p', 'path')
 	.describe('p', 'Local repository directory')
@@ -17,9 +21,9 @@ var argv = require('optimist')
 	.argv;
 
 
-require('../lib').cloneModule(argv.m, argv.p, argv.deps, argv.dev, function (err) {
+require('../lib').cloneModule(argv.pm, argv.m, argv.p, argv.deps, argv.dev, function (err) {
 	if (err) {
-		console.error(err);
+		console.error(colors.red(err.message));
 		process.exit(1);
 	}
 	process.exit();
