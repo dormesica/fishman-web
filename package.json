@@ -1,20 +1,32 @@
 {
-  "name": "schiffmann",
+  "name": "fishman",
   "version": "0.1.1",
-  "description": "Clone bower packages and its dependencies",
+  "description": "Download module and its dependencies from different package managers",
   "bin": {
-    "schiffmann": "bin/schiffmann.js"
+    "fishman": "bin/fishman.js"
   },
-  "main" : "./lib/index.js",
+  "main": "./lib/index.js",
   "preferGlobal": "true",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/idosh/Fishman.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ido Shamun <idoesh1@gmail.com>",
+  "author": {
+    "name": "Ido Shamun",
+    "email": "idoesh1@gmail.com"
+  },
   "contributors": [
     {
       "name": "Ron Nagar"
     }
+  ],
+  "keywords": [
+    "npm",
+    "bower",
+    "clone"
   ],
   "license": "MIT",
   "dependencies": {
@@ -22,6 +34,7 @@
     "bower-registry-client": "^0.2.1",
     "colors": "^1.0.3",
     "nodegit": "^0.2.4",
-    "optimist": "^0.6.1"
+    "optimist": "^0.6.1",
+    "silent-npm-registry-client": "0.0.1"
   }
 }

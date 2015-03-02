@@ -12,6 +12,8 @@ var argv = require('optimist')
 	.demand('p')
 	.alias('p', 'path')
 	.describe('p', 'Local repository directory')
+	.alias('v', 'version')
+	.describe('v', 'Module version')
 	.boolean('deps')
 	.default('deps', true)
 	.describe('deps', 'Should download module dependencies')
@@ -21,7 +23,7 @@ var argv = require('optimist')
 	.argv;
 
 
-require('../lib').cloneModule(argv.pm, argv.m, argv.p, argv.deps, argv.dev, function (err) {
+require('../lib').cloneModule(argv.pm, argv.m, argv.v, argv.p, argv.deps, argv.dev, function (err) {
 	if (err) {
 		console.error(colors.red(err.message));
 		process.exit(1);
