@@ -30,6 +30,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "glob": "^5.0.5",
     "async": "^0.9.0",
     "bower-registry-client": "^0.2.1",
     "colors": "^1.0.3",
