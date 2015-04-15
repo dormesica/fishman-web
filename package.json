@@ -30,11 +30,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "glob": "^5.0.5",
     "async": "^0.9.0",
     "bower-registry-client": "^0.2.1",
     "colors": "^1.0.3",
-    "nodegit": "^0.2.4",
+    "glob": "^5.0.5",
+    "nodegit": "^0.3.3",
     "optimist": "^0.6.1",
     "semver": "^4.3.1",
     "silent-npm-registry-client": "0.0.1"
