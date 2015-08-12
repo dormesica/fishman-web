@@ -35,8 +35,8 @@
     "colors": "^1.0.3",
     "glob": "^5.0.5",
     "nodegit": "^0.3.3",
+    "npm-registry-client": "^6.5.1",
     "optimist": "^0.6.1",
-    "semver": "^4.3.1",
-    "silent-npm-registry-client": "0.0.1"
+    "semver": "^4.3.1"
   }
 }
