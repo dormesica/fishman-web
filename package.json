@@ -1,6 +1,6 @@
 {
   "name": "fishman",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Download module and its dependencies from different package managers",
   "bin": {
     "fishman": "bin/fishman.js"
