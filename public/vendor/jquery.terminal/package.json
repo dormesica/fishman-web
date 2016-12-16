@@ -1,0 +1,93 @@
+{
+  "_args": [
+    [
+      "jquery.terminal",
+      "C:\\Users\\Itzko\\Desktop\\Fishman web"
+    ]
+  ],
+  "_from": "jquery.terminal@latest",
+  "_id": "jquery.terminal@0.11.22",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/jquery.terminal",
+  "_nodeVersion": "7.0.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/jquery.terminal-0.11.22.tgz_1481307937520_0.05791809945367277"
+  },
+  "_npmUser": {
+    "email": "jcubic@onet.pl",
+    "name": "jcubic"
+  },
+  "_npmVersion": "3.10.8",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "jquery.terminal",
+    "raw": "jquery.terminal",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/jquery.terminal/-/jquery.terminal-0.11.22.tgz",
+  "_shasum": "4db3fc8c4bacf62144acaebf33888e5f9c6fc8cd",
+  "_shrinkwrap": null,
+  "_spec": "jquery.terminal",
+  "_where": "C:\\Users\\Itzko\\Desktop\\Fishman web",
+  "author": {
+    "email": "jcubic@onet.pl",
+    "name": "Jakub Jankiewicz",
+    "url": "http://jcubic.pl"
+  },
+  "bugs": {
+    "url": "https://github.com/jcubic/jquery.terminal/issues"
+  },
+  "dependencies": {
+    "jquery": "^2.1.4"
+  },
+  "description": "jQuery Terminal Emulator is a plugin for creating command line interpreters in your applications.",
+  "devDependencies": {
+    "istanbul": "^0.4.3",
+    "jasmine": "^2.4.1",
+    "jasmine-node": "^1.14.5",
+    "jsdom": "^3.1.2"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "4db3fc8c4bacf62144acaebf33888e5f9c6fc8cd",
+    "tarball": "https://registry.npmjs.org/jquery.terminal/-/jquery.terminal-0.11.22.tgz"
+  },
+  "gitHead": "5c31fcb6c6b1d4c2ddd9b4dc2fad3c7038fdae4a",
+  "homepage": "http://terminal.jcubic.pl",
+  "keywords": [
+    "terminal",
+    "emulator",
+    "prompt",
+    "console",
+    "keyboard",
+    "type",
+    "rpc",
+    "input",
+    "ui"
+  ],
+  "license": "MIT",
+  "main": "js/jquery.terminal.js",
+  "maintainers": [
+    {
+      "email": "jcubic@onet.pl",
+      "name": "jcubic"
+    }
+  ],
+  "name": "jquery.terminal",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcubic/jquery.terminal.git"
+  },
+  "scripts": {},
+  "version": "0.11.22"
+}

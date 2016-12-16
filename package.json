@@ -1,45 +1,31 @@
 {
-  "name": "fishman",
-  "version": "0.6.2",
-  "description": "Download module and its dependencies from different package managers",
-  "bin": {
-    "fishman": "bin/fishman.js"
-  },
-  "main": "./lib/index.js",
-  "preferGlobal": "true",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/idosh/Fishman.git"
-  },
+  "name": "fishman-web",
+  "version": "0.0.1",
+  "description": "Download module and its dependencies from different package managers via web interface",
+  "main": "bin/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/server.js"
   },
-  "author": {
-    "name": "Ido Shamun",
-    "email": "idoesh1@gmail.com"
-  },
-  "contributors": [
-    {
-      "name": "Ron Nagar"
-    },
-    {
-      "name": "MonkeySlut"
-    }
-  ],
   "keywords": [
     "npm",
-    "bower",
-    "clone"
+    "fishman",
+    "clone",
+    "dependencies"
   ],
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "async": "^2.1.4",
-    "bower": "^1.8.0",
-    "colors": "^1.0.3",
-    "glob": "^7.1.1",
-    "nodegit": "^0.16.0",
+    "express": "^4.14.0",
+    "memory-fs": "^0.4.1",
     "npm-registry-client": "^7.4.5",
-    "optimist": "^0.6.1",
-    "semver": "^5.3.0"
+    "semver": "^5.3.0",
+    "socket.io": "^1.7.2",
+    "socket.io-stream": "^0.9.1",
+    "tar-stream": "^1.5.2"
+  },
+  "engines": {
+    "node": "6.9.1"
   }
 }

@@ -1,0 +1,201 @@
+html{
+	height: calc(100% - 3px);
+}
+
+body{
+	background: #102E4E;
+	font-family: monospace;
+	margin: 0;
+    margin-top: -20px;
+    padding: 0;
+    height: 100%;
+}
+
+#wrapper{
+    position: relative;
+	min-height: 100%;
+    width: 100%;
+}
+
+#content{
+	padding-bottom: 50px;
+}
+
+#footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+	right: 0;
+	height: 50px;
+}
+
+#footer .container{
+	display: table;
+    margin: 12.5px auto;
+	
+}
+
+#footer img{
+	height: 25px;
+    margin: 0 25px;
+}
+
+.upperView{
+	position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 130px;
+    z-index: -1;
+	background-color: #f3fdff;
+}
+
+.wave{
+	position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 175px;
+    z-index: -1;
+	
+	background-image:url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"><style type="text/css">.st0{fill:#f3fdff;}</style><g id="XMLID_2_"><path id="XMLID_5_" class="st0" d="M0,0v32.6c13.8,0,25-8.4,25-18.8c0,10.4,11.2,18.8,25,18.8V0H0z"/></g></svg>');
+	background-repeat: repeat-x;
+    background-size: 50px;
+    background-position-y: 100%;
+	
+}
+
+#fishmanLogo{
+	display: table;
+    margin: auto;
+	margin-top: 20px;
+    height: 200px;
+}
+
+#fishmanTitle{
+    display: table;
+    margin: auto;
+    font-size: 48px;
+	color: #d3e3ee;
+}
+
+#terminal {
+    margin: 25px auto;
+	width: 50%;
+}
+
+.demo{
+    margin: auto;
+    font-size: 14px;
+	color: white;
+}
+
+.demo td {
+	padding: 0 10px;
+}
+
+.demo .command{
+	color: #00BFFF;
+}
+
+.demo .example{
+	color: #5F9EA0
+}
+
+.demo .required{
+	float: right;
+    margin-right: 75px;
+	font-size: 12px;
+	color: #bb3535;
+}
+
+@-webkit-keyframes writing {
+	0%   {content: "\00a0";}
+	3%   {content: "_";}
+	6%   {content: "\00a0";}
+    8%   {content: "_";}
+	12%  {content: "F";}
+    16%  {content: "F_";}
+    20%  {content: "Fi";}
+    24%  {content: "Fi_";}
+    28%  {content: "Fis";}
+    32%  {content: "Fis_";}
+	36%  {content: "Fish";}
+	40%  {content: "Fish_";}
+	44%  {content: "Fishm";}
+	48%  {content: "Fishm_";}
+	52%  {content: "Fishma";}
+	56%  {content: "Fishma_";}
+	60%  {content: "Fishman";}
+	64%  {content: "Fishman ";}
+	68%  {content: "Fishman_";}
+	72%  {content: "Fishman _";}
+	76%  {content: "Fishman W";}
+	80%  {content: "Fishman W_";}
+	84%  {content: "Fishman We";}
+	88%  {content: "Fishman We_";}
+	96%  {content: "Fishman Web";}
+}
+
+#fishmanTitle:after{
+	animation: writing 3s linear alternate;
+	content: "Fishman Web";
+}
+
+#sun{
+	position: absolute;
+    height: 50px;
+    width: 50px;
+    margin-left: 25%;
+    margin-top: 15px;
+    z-index: 0;
+	fill: #FCDA40;
+}
+
+@-webkit-keyframes cloudMove1 {
+	0%   {margin-left: 20%;}
+	50%   {margin-left: 25%;}
+	100%   {margin-left: 20%;}
+}
+
+
+@-webkit-keyframes cloudMove2 {
+	0%   {margin-right: 25%;}
+	50%   {margin-right: 30%;}
+	100%   {margin-right: 25%;}
+}
+
+
+#cloud1{
+	position: absolute;
+	left: 0;
+	z-index: 1;
+    margin-top: 25px;
+    width: 100px; 
+	animation: cloudMove1 25s linear infinite;
+}
+
+#cloud2{
+	position: absolute;
+	right: 0;
+	z-index: 1;
+    margin-top: 30px;
+    width: 120px;
+	
+	animation: cloudMove2 35s linear infinite;
+}
+
+.st0{fill:#0F49BC;}
+.st1{fill:#2A6AC6;}
+.st2{fill:#63503B;}
+.st3{fill:#EDB88C;}
+.st4{fill:none;stroke:#000000;stroke-miterlimit:10;}
+.st5{fill:#CCC6C2;}
+.st6{fill:#494441;}
+.st7{fill:#C6BD8D;}
+.st8{fill:#D3CA97;}
+.st9{fill:#75644E;}
+.st10{fill:#D6BA32;}
+.st11{fill:#FEDA3E;}
+.st12{fill:#FFFFFF;}
+
