@@ -40,7 +40,7 @@ body{
     margin: 0 25px;
 }
 
-.upperView{
+.sky{
 	position: absolute;
     top: 0;
     right: 0;
@@ -71,6 +71,20 @@ body{
 	margin-top: 20px;
     height: 200px;
 }
+
+#fishmanLogo .sea1{fill:#0F49BC; opacity: 1;}
+#fishmanLogo .sea2{fill:#2A6AC6;}
+#fishmanLogo .boatBack{fill:#63503B;}
+#fishmanLogo .skin{fill:#EDB88C;}
+#fishmanLogo .hook{fill:none;stroke:#000000;stroke-miterlimit:10;}
+#fishmanLogo .shirt{fill:#CCC6C2;}
+#fishmanLogo .overall{fill:#494441;}
+#fishmanLogo .hat1{fill:#C6BD8D;}
+#fishmanLogo .hat2{fill:#D3CA97;}
+#fishmanLogo .boatFront{fill:#75644E;}
+#fishmanLogo .js1{fill:#D6BA32;}
+#fishmanLogo .js2{fill:#FEDA3E;}
+#fishmanLogo .jsText{fill:#FFFFFF;}
 
 #fishmanTitle{
     display: table;
@@ -109,7 +123,63 @@ body{
 	color: #bb3535;
 }
 
+@keyframes writing {
+	0%   {content: "\00a0";}
+	3%   {content: "_";}
+	6%   {content: "\00a0";}
+    8%   {content: "_";}
+	12%  {content: "F";}
+    16%  {content: "F_";}
+    20%  {content: "Fi";}
+    24%  {content: "Fi_";}
+    28%  {content: "Fis";}
+    32%  {content: "Fis_";}
+	36%  {content: "Fish";}
+	40%  {content: "Fish_";}
+	44%  {content: "Fishm";}
+	48%  {content: "Fishm_";}
+	52%  {content: "Fishma";}
+	56%  {content: "Fishma_";}
+	60%  {content: "Fishman";}
+	64%  {content: "Fishman ";}
+	68%  {content: "Fishman_";}
+	72%  {content: "Fishman _";}
+	76%  {content: "Fishman W";}
+	80%  {content: "Fishman W_";}
+	84%  {content: "Fishman We";}
+	88%  {content: "Fishman We_";}
+	96%  {content: "Fishman Web";}
+}
+
 @-webkit-keyframes writing {
+	0%   {content: "\00a0";}
+	3%   {content: "_";}
+	6%   {content: "\00a0";}
+    8%   {content: "_";}
+	12%  {content: "F";}
+    16%  {content: "F_";}
+    20%  {content: "Fi";}
+    24%  {content: "Fi_";}
+    28%  {content: "Fis";}
+    32%  {content: "Fis_";}
+	36%  {content: "Fish";}
+	40%  {content: "Fish_";}
+	44%  {content: "Fishm";}
+	48%  {content: "Fishm_";}
+	52%  {content: "Fishma";}
+	56%  {content: "Fishma_";}
+	60%  {content: "Fishman";}
+	64%  {content: "Fishman ";}
+	68%  {content: "Fishman_";}
+	72%  {content: "Fishman _";}
+	76%  {content: "Fishman W";}
+	80%  {content: "Fishman W_";}
+	84%  {content: "Fishman We";}
+	88%  {content: "Fishman We_";}
+	96%  {content: "Fishman Web";}
+}
+
+@-moz-keyframes writing {
 	0%   {content: "\00a0";}
 	3%   {content: "_";}
 	6%   {content: "\00a0";}
@@ -139,6 +209,8 @@ body{
 
 #fishmanTitle:after{
 	animation: writing 3s linear alternate;
+	-moz-animation: writing 3s linear alternate;
+	-webkit-animation: writing 3s linear alternate;
 	content: "Fishman Web";
 }
 
@@ -152,19 +224,48 @@ body{
 	fill: #FCDA40;
 }
 
+@keyframes cloudMove1 {
+	0%   {margin-left: 20%;}
+	50%   {margin-left: 25%;}
+	100%   {margin-left: 20%;}
+}
+
 @-webkit-keyframes cloudMove1 {
 	0%   {margin-left: 20%;}
 	50%   {margin-left: 25%;}
 	100%   {margin-left: 20%;}
 }
 
+@-moz-keyframes cloudMove1 {
+	0%   {margin-left: 20%;}
+	50%   {margin-left: 25%;}
+	100%   {margin-left: 20%;}
+}
 
+
+@keyframes cloudMove2 {
+	0%   {margin-right: 25%;}
+	50%   {margin-right: 30%;}
+	100%   {margin-right: 25%;}
+}
+
+/*  */
 @-webkit-keyframes cloudMove2 {
 	0%   {margin-right: 25%;}
 	50%   {margin-right: 30%;}
 	100%   {margin-right: 25%;}
 }
 
+@-moz-keyframes cloudMove2 {
+	0%   {margin-right: 25%;}
+	50%   {margin-right: 30%;}
+	100%   {margin-right: 25%;}
+}
+
+.cloud>path{
+	fill: black;
+	opacity:0.05; 
+}
 
 #cloud1{
 	position: absolute;
@@ -173,6 +274,9 @@ body{
     margin-top: 25px;
     width: 100px; 
 	animation: cloudMove1 25s linear infinite;
+	-webkit-animation: cloudMove1 25s linear infinite;
+	-moz-animation: cloudMove1 25s linear infinite;
+	
 }
 
 #cloud2{
@@ -183,19 +287,6 @@ body{
     width: 120px;
 	
 	animation: cloudMove2 35s linear infinite;
+	-webkit-animation: cloudMove2 35s linear infinite;
+	-moz-animation: cloudMove2 35s linear infinite;
 }
-
-.st0{fill:#0F49BC;}
-.st1{fill:#2A6AC6;}
-.st2{fill:#63503B;}
-.st3{fill:#EDB88C;}
-.st4{fill:none;stroke:#000000;stroke-miterlimit:10;}
-.st5{fill:#CCC6C2;}
-.st6{fill:#494441;}
-.st7{fill:#C6BD8D;}
-.st8{fill:#D3CA97;}
-.st9{fill:#75644E;}
-.st10{fill:#D6BA32;}
-.st11{fill:#FEDA3E;}
-.st12{fill:#FFFFFF;}
-
