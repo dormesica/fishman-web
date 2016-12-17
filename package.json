@@ -1,19 +1,22 @@
 {
   "name": "fishman-web",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Download module and its dependencies from different package managers via web interface",
   "main": "bin/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./bin/server.js"
   },
+  "contributors": [
+    "MonkeySlut <themonkeyslat@gmail.com>",
+    "Harel Itzkovitz <rlitzkovitz@gmail.com>"
+  ],
   "keywords": [
     "npm",
     "fishman",
     "clone",
     "dependencies"
   ],
-  "author": "",
   "license": "MIT",
   "dependencies": {
     "async": "^2.1.4",
