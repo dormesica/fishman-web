@@ -12,7 +12,7 @@ var path = require('path'); //used only for express to serve statics
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-server.listen(process.env.PORT || 80);
+server.listen(process.env.PORT || 8080);
 
 io.on('connection', function (socket) {
     socket.on('fishmanRequest', function (request) {
@@ -61,7 +61,9 @@ io.on('connection', function (socket) {
         });
     });
 
+    //TODO
+    /*
     socket.on('disconnect', function () {
-        //fishmanWeb.
     });
+    */
 });
