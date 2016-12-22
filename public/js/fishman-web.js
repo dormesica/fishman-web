@@ -1,4 +1,32 @@
-	$('#terminal').focus();
+	document.getElementById('terminal').focus();
+	
+	const xLogoScale = 15;
+	const yLogoScale = 8;
+	      
+	const xWaveScale = 5;
+	const yWaveScale = 5;
+	
+	var windowWidth = window.innerWidth;
+	var windowHeight = window.innerHeight;
+	
+	var sitelogo = document.getElementById('fishmanLogo');
+	var wave = document.getElementById('wave');
+	
+	document.onmousemove = function (e) {
+		var ratioX = e.pageX / (windowWidth / 2) - 1;
+		var ratioY = e.pageY / (windowHeight / 2) - 1;
+		
+		var logoX = ratioX * xLogoScale / 2;
+		var logoY = ratioY * yLogoScale / 2;
+		
+		var waveX = ratioX * xWaveScale / 2 * (-1);
+		var waveY = ratioY * yWaveScale / 2 * (-1);
+		
+		sitelogo.style.transform = 'translate(' + logoX + 'px, ' + logoY + 'px)';
+		wave.style.backgroundPositionX = waveX + 'px';
+		wave.style.backgroundPositionY = 'calc(100% + (' + waveY + 'px))';
+	};
+	
 	var printProgress = function (term, percent) {
         if(percent <= 100) {
             var width = term.cols() - 10;
