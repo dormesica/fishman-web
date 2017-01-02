@@ -44,19 +44,25 @@ io.on('connection', function (socket) {
         };
 
         fishmanWeb.cloneModule(options, fileSystem, finalDownload, function (typeOfUpdate, content) {
-            if (typeOfUpdate == 'downloadProgress' || typeOfUpdate == 'regularUpdate' || 
-                typeOfUpdate == 'criticalError') {
-                socket.emit(typeOfUpdate, content);
-
-                if(typeOfUpdate == 'criticalError') {
+            switch (typeOfUpdate) {
+                case "downloadProgress":
+                    socket.emit(typeOfUpdate, content);
+                    break;          
+                case "regularUpdate":
+                    content.message = decodeURIComponent(content.message);
+                    socket.emit(typeOfUpdate, content); //decode
+                    break;
+                case "criticalError":
+                    content.message = decodeURIComponent(content.message);
+                    socket.emit(typeOfUpdate, content); //decode 
                     socket.disconnect();
-                }
-
-            } else if (typeOfUpdate == 'finalDownloadToClient') {
-                socket.emit('finalDownloadToClientMD', finalDownload.size);
-                ss(socket).emit(typeOfUpdate, finalDownload.stream);
-            } else {
-                console.log('this should never happen - typeOfUpdate ' + typeOfUpdate +' did not match!');
+                    break;
+                case "finalDownloadToClient":
+                    socket.emit('finalDownloadToClientMD', finalDownload.size);
+                    ss(socket).emit(typeOfUpdate, finalDownload.stream);
+                    break;
+                default:
+                    console.log('this should never happen - typeOfUpdate ' + typeOfUpdate +' did not match!');      
             }
         });
     });
