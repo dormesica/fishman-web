@@ -1,6 +1,6 @@
 {
   "name": "fishman-web",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Download module and its dependencies from different package managers via web interface",
   "main": "bin/server.js",
   "scripts": {
