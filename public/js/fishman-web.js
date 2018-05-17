@@ -4,7 +4,8 @@
 	const yLogoScale = 8;
 	      
 	const xWaveScale = 5;
-	const yWaveScale = 5;
+    const yWaveScale = 5;
+    const arrArgs = ['--modules', '-m', '--pm', '--deps', '--dev', '--t'];
 	
 	var windowWidth = window.innerWidth;
 	var windowHeight = window.innerHeight;
@@ -46,6 +47,13 @@
                 term.set_prompt('> fishman ');
             }
         }
+    }
+
+    const getFileName = function(){
+        const now = new Date();
+        const date = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+        const time = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+        return `${date}_${time}.tar`;
     }
 
     var downloadFileFromBlob = (function () {
@@ -91,7 +99,7 @@
                     });
 
                     //== Download file in browser
-                    downloadFileFromBlob([filedata], request.module+".tar");
+                    downloadFileFromBlob([filedata], getFileName());
                 });
             });          
         });
@@ -110,46 +118,51 @@
 
         if (command !== '') {
             var parsed = $.terminal.parse_command ('fishaman ' + command);
-            if (parsed.args.length % 2 == 0) {
-                var pm, m, version, incDeps, incDevDeps;
-                for (var i=0; i<parsed.args.length; i+=2) {
-                    if (parsed.args[i] == '--pm') {
-                        pm = parsed.args[i+1];
-                    } else if (parsed.args[i] == '--module' || parsed.args[i] == '-m') {
-                        m = parsed.args[i+1];
-                    } else if (parsed.args[i] == '--version' || parsed.args[i] == '-v') {
-                        version = parsed.args[i+1];
-                    } else if (parsed.args[i] == '--deps') {
-                        incDeps = parsed.args[i+1];
-                    } else if (parsed.args[i] == '--dev') {
-                        incDevDeps = parsed.args[i+1];
+            var pm, modulesArr = [], incTypes = true, incDeps = true, incDevDeps = false;
+            let index = 0;
+            while(index < parsed.args.length) {
+                if (parsed.args[index] == arrArgs[0] || parsed.args[index] == arrArgs[1]) {
+                    // TODO export to function and export array ogf params
+                    for (let j = index + 1; j < parsed.args.length && arrArgs.indexOf(parsed.args[j]) === -1; j++) {
+                        modulesArr.push(parsed.args[j]);
+                        index++;
+                    }
+                    
+                    index++;
+                }
+                else {
+                    if (parsed.args[index] == arrArgs[2]) {
+                        pm = parsed.args[index+1];
+                    } else if (parsed.args[index] == arrArgs[3]) {
+                        incDeps = parsed.args[index+1] === 'true';
+                    } else if (parsed.args[index] == arrArgs[4]) {
+                        incDevDeps = parsed.args[index+1] === 'true';
+                    } else if (parsed.args[index] == arrArgs[5]) {
+                        incTypes = parsed.args[index+1] === 'true';
                     } else {
                         term.error ('wrong input "' + parsed.args[i] +'"');
                     }
+
+                    index += 2;
                 }
-                if(pm && m ) {
-                    var request = {
-                        pm : pm,
-                        module : m
-                    }
+            }
 
-                    if(incDeps) {
-                        request.incDeps = incDeps;
-                    }
-
-                    if(incDevDeps) {
-                        request.incDevDeps = incDevDeps;
-                    }
-
-                    if(version) {
-                        request.version = version;
-                    }
-                    socket.emit('fishmanRequest', request);
-                } else {
-                    term.error ('--pm and --module is required');
+            if(pm && modulesArr) {
+                const modulesObj = modulesArr.map(m => {
+                    const arrNameVersion = m.split(":");
+                    return { name: arrNameVersion[0], ver: arrNameVersion[1] }
+                })
+                const request = {
+                    pm : pm,
+                    modules : modulesObj,
+                    incDeps: incDeps,
+                    incDevDeps: incDevDeps,
+                    incTypes: incTypes
                 }
+
+                socket.emit('fishmanRequest', request);
             } else {
-                term.error ('expected an even number of args');
+                term.error ('--pm and --modules is required');
             }
         } else {
             term.echo('');

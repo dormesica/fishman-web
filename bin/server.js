@@ -1,13 +1,13 @@
 #!/usr/bin/env Node
 
-var express = require('express');
-var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-var memoryFileSystem = require('memory-fs');
-var ss = require('socket.io-stream');
-var fishmanWeb = require('../lib');
-var path = require('path'); //used only for express to serve statics
+const express = require('express');
+const app = express();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+const memoryFileSystem = require('memory-fs');
+const ss = require('socket.io-stream');
+const fishmanWeb = require('../lib');
+const path = require('path'); //used only for express to serve statics
 
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -16,29 +16,18 @@ server.listen(process.env.PORT || 8080);
 
 io.on('connection', function (socket) {
     socket.on('fishmanRequest', function (request) {
-        var options = {
+        const options = {
             packageManager: request.pm,
-            module: request.module,
-            incDeps: true,
-            incDevDeps: false,
-            basePath: "/"
+            modules: request.modules,
+            incDeps: request.incDeps,
+            incDevDeps: request.incDevDeps,
+            incTypes: request.incTypes,
+            basePath: "/",
         };
 
-        if(request.incDeps) {
-            options.incDeps = request.incDeps;
-        }
+        const fileSystem = new memoryFileSystem();
 
-        if(request.incDevDeps) {
-            options.incDevDeps = request.incDevDeps;
-        }
-
-        if(request.version) {
-            options.version = request.version;
-        }
-
-        var fileSystem = new memoryFileSystem();
-
-        var finalDownload = {
+        let finalDownload = {
             stream: ss.createStream(),
             size: 0
         };
