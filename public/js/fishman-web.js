@@ -122,7 +122,6 @@
             let index = 0;
             while(index < parsed.args.length) {
                 if (parsed.args[index] == arrArgs[0] || parsed.args[index] == arrArgs[1]) {
-                    // TODO export to function and export array ogf params
                     for (let j = index + 1; j < parsed.args.length && arrArgs.indexOf(parsed.args[j]) === -1; j++) {
                         modulesArr.push(parsed.args[j]);
                         index++;
