@@ -12,12 +12,12 @@ const path = require('path'); //used only for express to serve statics
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 const port = process.env.PORT || 8080;
-server.listen(port, function() {
+server.listen(port, () => {
     console.log(`open http://localhost:${port}/`);
 });
 
-io.on('connection', function(socket) {
-    socket.on('fishmanRequest', function(request) {
+io.on('connection', socket => {
+    socket.on('fishmanRequest', request => {
         const options = {
             packageManager: request.pm,
             modules: request.modules,
@@ -34,7 +34,7 @@ io.on('connection', function(socket) {
             size: 0,
         };
 
-        fishmanWeb.cloneModule(options, fileSystem, finalDownload, function(typeOfUpdate, content) {
+        fishmanWeb.cloneModule(options, fileSystem, finalDownload, (typeOfUpdate, content) => {
             switch (typeOfUpdate) {
                 case 'downloadProgress':
                     socket.emit(typeOfUpdate, content);
@@ -60,7 +60,7 @@ io.on('connection', function(socket) {
 
     //TODO
     /*
-    socket.on('disconnect', function () {
+    socket.on('disconnect', () => {
     });
     */
 });
