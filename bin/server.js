@@ -11,7 +11,10 @@ const path = require('path'); //used only for express to serve statics
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-server.listen(process.env.PORT || 8080);
+const port = process.env.PORT || 8080;
+server.listen(port, function() {
+    console.log(`open http://localhost:${port}/`);
+});
 
 io.on('connection', function(socket) {
     socket.on('fishmanRequest', function(request) {
