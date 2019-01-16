@@ -50,7 +50,7 @@ io.on('connection', function(socket) {
                     ss(socket).emit(typeOfUpdate, finalDownload.stream);
                     break;
                 default:
-                    console.log('this should never happen - typeOfUpdate ' + typeOfUpdate + ' did not match!');
+                    console.log(`this should never happen - typeOfUpdate ${typeOfUpdate} did not match!`);
             }
         });
     });
