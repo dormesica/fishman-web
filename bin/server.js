@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
-const memoryFileSystem = require('memory-fs');
 const ss = require('socket.io-stream');
 const fishmanWeb = require('../lib');
 const path = require('path'); //used only for express to serve statics
@@ -26,17 +25,14 @@ io.on('connection', socket => {
             incDeps: request.incDeps,
             incDevDeps: request.incDevDeps,
             incTypes: request.incTypes,
-            basePath: '/',
         };
-
-        const fileSystem = new memoryFileSystem();
 
         let finalDownload = {
             stream: ss.createStream(),
             size: 0,
         };
 
-        provider = fishmanWeb.cloneModule(options, fileSystem, finalDownload, (typeOfUpdate, content) => {
+        provider = fishmanWeb.cloneModule(options, finalDownload, (typeOfUpdate, content) => {
             switch (typeOfUpdate) {
                 case 'downloadProgress':
                     socket.emit(typeOfUpdate, content);
@@ -61,6 +57,7 @@ io.on('connection', socket => {
     });
     
     socket.on('disconnect', () => {
+        console.log(`User Disconnected. Cancelling request.`);
         if (provider) {
             provider.cancel();
         }
