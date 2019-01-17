@@ -17,6 +17,8 @@ server.listen(port, () => {
 });
 
 io.on('connection', socket => {
+    let provider = null;
+
     socket.on('fishmanRequest', request => {
         const options = {
             packageManager: request.pm,
@@ -34,7 +36,7 @@ io.on('connection', socket => {
             size: 0,
         };
 
-        fishmanWeb.cloneModule(options, fileSystem, finalDownload, (typeOfUpdate, content) => {
+        provider = fishmanWeb.cloneModule(options, fileSystem, finalDownload, (typeOfUpdate, content) => {
             switch (typeOfUpdate) {
                 case 'downloadProgress':
                     socket.emit(typeOfUpdate, content);
@@ -57,10 +59,10 @@ io.on('connection', socket => {
             }
         });
     });
-
-    //TODO
-    /*
+    
     socket.on('disconnect', () => {
+        if (provider) {
+            provider.cancel();
+        }
     });
-    */
 });
