@@ -32,6 +32,7 @@ io.on('connection', socket => {
             size: 0,
         };
 
+        // TODO move updates to event handler on provider
         provider = fishmanWeb.cloneModule(options, finalDownload, (typeOfUpdate, content) => {
             switch (typeOfUpdate) {
                 case 'downloadProgress':
@@ -55,7 +56,7 @@ io.on('connection', socket => {
             }
         });
     });
-    
+
     socket.on('disconnect', () => {
         console.log(`User Disconnected. Cancelling request.`);
         if (provider) {
